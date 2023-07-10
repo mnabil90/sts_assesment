@@ -1,4 +1,4 @@
-package com.demo.FileManagement.util;
+package com.demo.FileManagement.dto;
 
 import lombok.Data;
 

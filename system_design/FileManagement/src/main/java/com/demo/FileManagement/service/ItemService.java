@@ -5,15 +5,17 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.demo.FileManagement.dto.ResponseMessage;
 import com.demo.FileManagement.model.Item;
 import com.demo.FileManagement.repository.ItemRepository;
-import com.demo.FileManagement.util.ResponseMessage;
+
+import lombok.AllArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class ItemService {
 
-	@Autowired
-	ItemRepository itemRepository;
+	private final ItemRepository itemRepository;
 
 	public ResponseMessage save(Item item) {
 		ResponseMessage rw = new ResponseMessage();

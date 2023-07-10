@@ -5,15 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.demo.FileManagement.dto.ResponseMessage;
 import com.demo.FileManagement.model.Permission;
 import com.demo.FileManagement.repository.PermissionRepository;
-import com.demo.FileManagement.util.ResponseMessage;
+
+import lombok.AllArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class PermissionService {
 
-	@Autowired
-	PermissionRepository permissionRepository;
+	private final PermissionRepository permissionRepository;
 
 	public ResponseMessage save(Permission permission) {
 		ResponseMessage response = new ResponseMessage();

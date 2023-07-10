@@ -8,23 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.demo.FileManagement.dto.ResponseMessage;
 import com.demo.FileManagement.model.FileDB;
 import com.demo.FileManagement.model.Item;
 import com.demo.FileManagement.model.Permission;
 import com.demo.FileManagement.repository.FileDBRepository;
-import com.demo.FileManagement.util.ResponseMessage;
+
+import lombok.AllArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class FlieService {
 
-	@Autowired
-	FileDBRepository fileDBRepository;
+	private final FileDBRepository fileDBRepository;
 
-	@Autowired
-	PermissionService permissionService;
+	private final PermissionService permissionService;
 
-	@Autowired
-	ItemService itemService;
+	private final ItemService itemService;
 
 	public ResponseMessage uploadFile(MultipartFile file, String itemId, String userEmail) {
 		ResponseMessage rm = new ResponseMessage();

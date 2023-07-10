@@ -1,35 +1,35 @@
 package com.demo.FileManagement.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.demo.FileManagement.dto.ResponseMessage;
 import com.demo.FileManagement.model.Permission;
-import com.demo.FileManagement.model.PermissionGroup;
 import com.demo.FileManagement.service.PermissionService;
-import com.demo.FileManagement.util.ResponseMessage;
+
+import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("permission")
+@AllArgsConstructor
 public class PermissionController {
 
-	@Autowired
-	PermissionService permissionService;
+	private final PermissionService permissionService;
 	
 	@PostMapping("/save")
-	public ResponseEntity<ResponseMessage> save(@RequestBody Permission permission){
-		ResponseMessage rw = permissionService.save(permission);
-		return new ResponseEntity<ResponseMessage>(rw,HttpStatus.OK);
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseMessage save(@RequestBody Permission permission){
+		return permissionService.save(permission);
 	}
 	
 	@GetMapping("/list")
-	public ResponseEntity<ResponseMessage> findAll(){
-		ResponseMessage rw = permissionService.findAll();
-		return new ResponseEntity<ResponseMessage>(rw,HttpStatus.OK);
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseMessage findAll(){
+		return permissionService.findAll();
 	}
 }
