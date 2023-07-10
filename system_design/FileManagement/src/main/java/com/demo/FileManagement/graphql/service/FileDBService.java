@@ -2,12 +2,12 @@ package com.demo.FileManagement.graphql.service;
 
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
 import org.springframework.stereotype.Service;
 
 import com.demo.FileManagement.model.FileDB;
 import com.demo.FileManagement.repository.FileDBRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class FileDBService {

@@ -41,7 +41,7 @@ public class FlieService {
 			try {
 				uploadfile.setData(file.getBytes());
 				uploadfile.setFileName(file.getOriginalFilename());
-				uploadfile.setFileSize(file.getSize());
+				uploadfile.setFileSize(Float.parseFloat(""+file.getSize()));
 			} catch (IOException e) {
 				rm.setSuccess(false);
 				rm.setMessage("Couldn't upload File due to error => " + e.getMessage());
